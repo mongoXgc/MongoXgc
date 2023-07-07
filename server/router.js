@@ -676,7 +676,10 @@ try{
 
   const id = req.params.id;
   const deleteData = await fracture_Database.findByIdAndDelete(id);
-     
+
+  const gcBucketFile = bucket.file(deleteData.Imagename);
+  await gcBucketFile.delete();
+
           res.redirect("/user-collection");
 
 }catch(err){
@@ -691,6 +694,9 @@ route.get("/crud/delete-anemia-collection/:id", async (req, res)=>{
     const id = req.params.id;
     const deleteData = await anemia_Database.findByIdAndDelete(id);
        
+    const gcBucketFile = bucket.file(deleteData.Imagename);
+    await gcBucketFile.delete();
+
             res.redirect("/user-collection");
   
   }catch(err){
@@ -706,6 +712,9 @@ route.get("/crud/delete-anemia-collection/:id", async (req, res)=>{
       const id = req.params.id;
       const deleteData = await heartAttack_Database.findByIdAndDelete(id);
          
+      const gcBucketFile = bucket.file(deleteData.Imagename);
+      await gcBucketFile.delete();
+
               res.redirect("/user-collection");
     
     }catch(err){
@@ -722,13 +731,15 @@ route.get("/crud/delete-anemia-collection/:id", async (req, res)=>{
         const id = req.params.id;
         const deleteData = await tumor_Database.findByIdAndDelete(id);
            
+        const gcBucketFile = bucket.file(deleteData.Imagename);
+        await gcBucketFile.delete();
+
                 res.redirect("/user-collection");
       
       }catch(err){
         res.status(500).send({message: err.message || "Error Occured while deleting fracture collection"});
       }
       });
-    
 
 
 
