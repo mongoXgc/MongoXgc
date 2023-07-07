@@ -892,8 +892,18 @@ route.get('/logout', authController.logout_get);
 route.get("/crud/delete-fracture-collection/:id", async (req, res) => {
   try {
 
+<<<<<<< HEAD
     const id = req.params.id;
     const deleteData = await fracture_Database.findByIdAndDelete(id);
+=======
+  const id = req.params.id;
+  const deleteData = await fracture_Database.findByIdAndDelete(id);
+
+  const gcBucketFile = bucket.file(deleteData.Imagename);
+  await gcBucketFile.delete();
+
+          res.redirect("/user-collection");
+>>>>>>> 78077b91abcb6aee49f618b7dad33d421f03ccc6
 
     const gcBucketFile = bucket.file(deleteData.Imagename);
     await gcBucketFile.delete();
@@ -913,20 +923,51 @@ route.get("/crud/delete-anemia-collection/:id", async (req, res) => {
 
     const id = req.params.id;
     const deleteData = await anemia_Database.findByIdAndDelete(id);
+<<<<<<< HEAD
+=======
+       
+    const gcBucketFile = bucket.file(deleteData.Imagename);
+    await gcBucketFile.delete();
+
+            res.redirect("/user-collection");
+  
+  }catch(err){
+    res.status(500).send({message: err.message || "Error Occured while deleting fracture collection"});
+  }
+  });
+>>>>>>> 78077b91abcb6aee49f618b7dad33d421f03ccc6
 
     const gcBucketFile = bucket.file(deleteData.Imagename);
     await gcBucketFile.delete();
 
     res.redirect("/user-collection");
 
+<<<<<<< HEAD
   } catch (err) {
     res.status(500).send({
       message: err.message || "Error Occured while deleting fracture collection"
+=======
+  route.get("/crud/delete-heart-collection/:id", async (req, res)=>{
+    try{
+    
+      const id = req.params.id;
+      const deleteData = await heartAttack_Database.findByIdAndDelete(id);
+         
+      const gcBucketFile = bucket.file(deleteData.Imagename);
+      await gcBucketFile.delete();
+
+              res.redirect("/user-collection");
+    
+    }catch(err){
+      res.status(500).send({message: err.message || "Error Occured while deleting fracture collection"});
+    }
+>>>>>>> 78077b91abcb6aee49f618b7dad33d421f03ccc6
     });
   }
 });
 
 
+<<<<<<< HEAD
 
 route.get("/crud/delete-heart-collection/:id", async (req, res) => {
   try {
@@ -966,6 +1007,23 @@ route.get("/crud/delete-tumor-collection/:id", async (req, res) => {
     });
   }
 });
+=======
+    route.get("/crud/delete-tumor-collection/:id", async (req, res)=>{
+      try{
+      
+        const id = req.params.id;
+        const deleteData = await tumor_Database.findByIdAndDelete(id);
+           
+        const gcBucketFile = bucket.file(deleteData.Imagename);
+        await gcBucketFile.delete();
+
+                res.redirect("/user-collection");
+      
+      }catch(err){
+        res.status(500).send({message: err.message || "Error Occured while deleting fracture collection"});
+      }
+      });
+>>>>>>> 78077b91abcb6aee49f618b7dad33d421f03ccc6
 
 
 
