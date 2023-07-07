@@ -1,0 +1,45 @@
+<%- include('header.ejs') %>
+
+
+
+<h1>Fracture Collection</h1>
+<% fractureSignedURLs.forEach((info) => { %>
+    <h3>Image Name: <%= info.comment %></h3>
+    <img src="<%= info.signedURL %>" alt="Image" style="height: 20px; width: auto;">
+    <p>Result: <%= info.output %></p>
+    <a href = "/crud/delete-fracture-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+  <% }); %>
+
+
+  <h1>Anemia Collection</h1>
+<% anemiaSignedURLs.forEach((info) => { %>
+    <h3>Image Name: <%= info.comment %></h3>
+    <a href = "<%= info.signedURL %>"><img src="/images/pdf-image.png" alt="Image" style="height: 20px; width: auto;"></a>  
+    <p>Result: <%= info.output %></p>
+    <a href = "/crud/delete-anemia-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+  <% }); %>
+
+
+  <h1>Heartattack Collection</h1>
+  <% heartSignedURLs.forEach((info) => { %>
+      <h3>Image Name: <%= info.comment %></h3>
+      <a href = "<%= info.signedURL %>"><img src="/images/pdf-image.png" alt="Image" style="height: 20px; width: auto;"></a>  
+      <p>Result: <%= info.output %></p>
+      <a href = "/crud/delete-heart-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+    <% }); %>
+
+
+
+    <h1>Tumor Collection</h1>
+<% tumorSignedURLs.forEach((info) => { %>
+    <h3>Image Name: <%= info.comment %></h3>
+    <img src="<%= info.signedURL %>" alt="Image" style="height: 20px; width: auto;">
+    <p>Result: <%= info.output %></p>
+    <a href = "/crud/delete-tumor-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+  <% }); %>
+    
+
+
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>
