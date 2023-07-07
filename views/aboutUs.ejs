@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>diagnoScan</title>
+    <title>diagnoCentre</title>
     <link rel="logo-icon" sizes="180x180" href="images/logo-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -34,7 +34,7 @@
                     <div class="left-section flex justify-between items-center w-[45%]">
                         <div class="w-[40%] text-white">
                             <a class='text-white font-bold text-4xl text-center text-left w-full'
-                                href='/'>diagnoScan</a>
+                                href='/'>diagnoCentre</a>
                         </div>
                         <div class="hidden md:flex items-center w-[40%] flex justify-between text-white">
                             <a class='font-semibold text-md' href='/'>Home</a>
@@ -42,53 +42,54 @@
                         </div>
                     </div>
                     <!-- Secondary Navbar items -->
-                <div class="hidden md:flex items-center right-section w-[50%] text-white">
-                    <div class="w-full flex justify-end rounded shadow-lg px-6 py-4 text-center p-0 shadow-none">
-                        <% if (user) { %>
-                        <a class='inline-block font-semibold px-4 py-2 bg-blue-600 bg-transparent hover:scale-110 duration-500'
-                            href='#'><%= user.name %></a>
-                        <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
-                            href='/logout'>Logout</a>
-                        <% } else { %>
+                    <div class="hidden md:flex items-center right-section w-[50%] text-white">
+                        <div class="w-full flex justify-end rounded shadow-lg px-6 py-4 text-center p-0 shadow-none">
+                            <% if (user) { %>
                             <a class='inline-block font-semibold px-4 py-2 bg-blue-600 bg-transparent hover:scale-110 duration-500'
-                            href='/login'>Login</a>
-                        <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
-                            href='/signup'>Signup</a>
-                        <% } %>
+                                href='#'><%= user.name %></a>
+                            <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
+                                href='/logout'>Logout</a>
+                            <% } else { %>
+                            <a class='inline-block font-semibold px-4 py-2 bg-blue-600 bg-transparent hover:scale-110 duration-500'
+                                href='/login'>Login</a>
+                            <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
+                                href='/signup'>Signup</a>
+                            <% } %>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button class="outline-none mobile-menu-button">
+                            <svg class=" w-6 h-6 text-white hover:text-white " x-show="!showMenu" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button class="outline-none mobile-menu-button">
-                        <svg class=" w-6 h-6 text-white hover:text-white " x-show="!showMenu" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                <!-- mobile menu -->
+                <div class="hidden mobile-menu">
+                    <ul class="">
+                        <% if (user) { %>
+                        <li><a href="#"
+                                class="flex w-full text-sm px-2 py-4 bg-white text-black font-bold"><%= user.name %></a>
+                        </li>
+                        <li><a href="/logout" class="flex w-full text-sm px-2 py-4 text-black bg-white">Logout</a>
+                        </li>
+                        <% } else { %>
+                        <li><a href="/login" class="flex w-full text-sm px-2 py-4 text-black bg-white">Login</a>
+                        </li>
+                        <li><a href="/signup" class="flex w-full text-sm px-2 py-4 text-black bg-white">Signup</a>
+                        </li>
+                        <% } %>
+                        <li><a href="/" class="flex w-full text-sm px-2 py-4 text-black bg-white">Home</a>
+                        </li>
+                        <li><a href="/manual" class="flex w-full text-sm px-2 py-4 text-black bg-white">Services</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <!-- mobile menu -->
-            <div class="hidden mobile-menu">
-                <ul class="">
-                    <% if (user) { %>
-                    <li><a href="#" class="flex w-full text-sm px-2 py-4 bg-white text-black font-bold"><%= user.name %></a>
-                    </li>
-                    <li><a href="/logout" class="flex w-full text-sm px-2 py-4 text-black bg-white">Logout</a>
-                    </li>
-                    <% } else { %>
-                    <li><a href="/login" class="flex w-full text-sm px-2 py-4 text-black bg-white">Login</a>
-                    </li>
-                    <li><a href="/signup" class="flex w-full text-sm px-2 py-4 text-black bg-white">Signup</a>
-                    </li>
-                    <% } %>
-                    <li><a href="/" class="flex w-full text-sm px-2 py-4 text-black bg-white">Home</a>
-                    </li>
-                    <li><a href="/manual" class="flex w-full text-sm px-2 py-4 text-black bg-white">Services</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+            </nav>
             <!-- end header -->
 
             <!--Hero-->
@@ -260,44 +261,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 p-6 flex flex-col" data-aos="fade-up"
-                    data-aos-duration="300">
-                    <div class="flex flex-col bg-white overflow-hidden shadow-2xl w-full">
-                        <div class="flex flex-col items-center">
-                            <img src="images/hrishi.jpg" class="rounded-full h-[200px] w-[200px]">
-                        </div>
-                        <div class="w-full my-6 font-bold text-xl text-gray-800 px-4 text-center">
-                            Hrishikesh Balaji
-                        </div>
-                        <p class="w-full text-gray-600 text-xs text-center">
-                            Python Developer
-                        </p>
-                    </div>
-                    <div class="flex-none bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                        <div>
-                            <ul class="flex justify-center">
-                                <li>
-                                    <a href="https://www.instagram.com/hbm__illustration" target="_blank">
-                                        <i class="fa-brands fa-instagram" style="color: #48cae4;"></i>
-                                    </a>
-                                </li>
-
-                                <li class="ml-6">
-                                    <a href="https://www.linkedin.com/in/hrishikesh-madgundi-b31b0a1ba/"
-                                        target="_blank">
-                                        <i class="fa-brands fa-linkedin" style="color: #48cae4;"></i>
-                                    </a>
-                                </li>
-
-                                <li class="ml-6">
-                                    <a href="https://github.com/HrishikeshM22" target="_blank">
-                                        <i class="fa-brands fa-github" style="color: #48cae4;"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
         <!-- end team -->
@@ -306,12 +269,12 @@
         <section class="relative bg-[#f2f2f2]" id="info">
             <div class="py-[50px] text-black flex flex-col">
                 <p class="xsm:text-5xl sm:text-6xl lg:text-8xl text-center mb-8">OUR CONTRIBUTION</p>
-                <div class="py-[50px] flex flex-wrap justify-around">
+                <div class="py-[50px] flex flex-wrap justify-center">
                     <div class="p-4 m-4 shadow-2xl text-center xsm:w-4/5 lg:w-2/5 h-auto" data-aos="fade-up"
                         data-aos-duration="300">
                         <h3 class="text-5xl font-bold py-2 mt-6">Giridhari Singh Bisht</h3>
                         <p class="font-semibold my-6">Backend Developer</p>
-                        <p>I've contributed in the backend development of the project - diagnoScan. I've
+                        <p>I've contributed in the backend development of the project - diagnoCentre. I've
                             designed, built, and maintained the server-side logic using NodeJS, and ExpressJS and
                             MongoDB as
                             the
@@ -325,7 +288,7 @@
                         data-aos-duration="300">
                         <h3 class="text-5xl font-bold py-2 mt-6">Aditya Vikram Singh</h3>
                         <p class="font-semibold my-6">Frontend Developer</p>
-                        <p>I've contributed in frontend development of the project- diagnoScan. I've created and
+                        <p>I've contributed in frontend development of the project- diagnoCentre. I've created and
                             implemented
                             the
                             user interface and user
@@ -349,18 +312,6 @@
                         in
                         future.
                     </div>
-                    <div class="p-4 m-4 shadow-2xl text-center xsm:w-4/5 lg:w-2/5 h-auto" data-aos="fade-up"
-                        data-aos-duration="300">
-                        <h3 class="text-5xl font-bold py-2 mt-6">Hrishikesh Balaji</h3>
-                        <p class="font-semibold my-6">Python Developer</p>
-                        <p>My main contribution comes in the form of our Anemia detection model that has been trained
-                            using a dataset of around 1,500 patients. I've also contributed in the documentation of the
-                            project
-                            and by finding the required resources like the datasets that we have used in our project.
-                        </p>
-                        <br>
-                        My main focus now will be to train more models like Tumor detection in future.
-                    </div>
                 </div>
             </div>
         </section>
@@ -375,7 +326,7 @@
                 <div class="flex flex-col justify-center md:w-[100%] xsm:mx-5 sm:mx-0" data-aos="fade-up"
                     data-aos-duration="800">
                     <p class="font-bold text-6xl m-4">OUR VISION</p>
-                    <p class="text-lg mx-3">We as a group strive to take diagnoScan to the next level by
+                    <p class="text-lg mx-3">We as a group strive to take diagnoCentre to the next level by
                         implementing
                         multiple models for disease detection that will ease the process of diagnosis. We are working
                         hard
@@ -389,5 +340,5 @@
         </section>
         <!-- end vision -->
 
-<%- include('footer.ejs') %>
-<%- include('bottom.ejs') %>
+        <%- include('footer.ejs') %>
+        <%- include('bottom.ejs') %>

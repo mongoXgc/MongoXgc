@@ -1,45 +1,96 @@
 <%- include('header.ejs') %>
 
+<section
+  class="cover bg-gradient-to-r from-[#03071e] relative bg-customColor px-4 xsm:px-4 sm:px-8 md:px-16 lg:px-40 xl:px-64 2xl:px-64 h-auto flex items-center border-b-2 border-white">
+  <div
+    class="flex xl:w-[100%] relative z-10 my-32 xsm:flex-col sm:flex-row md:flex-row justify-between items-center sm:w-[100%] md:w-[100%] xl:w-[100%]">
+    <div class="z-10 rounded-lg border-2 w-full bg-white">
+      <div class="border-2 border-white flex flex-col">
+        <div>
+          <h1 class="text-4xl font-bold m-4">Fracture Collection</h1>
+        </div>
+        <div class="flex flex-wrap my-2">
+          <% fractureSignedURLs.forEach((info) => { %>
+          <div class="border-2 border-black bg-white mx-4 rounded-lg p-2 xsm:my-2">
+            <h3 class="m-2">Image Name: <%= info.comment %></h3>
+            <a href="<%= info.signedURL %>" target="_blank">
+              <img src="<%= info.signedURL %> " class="m-2 h-40 w-40 m-2" alt="Image">
+            </a>
+            <p class="m-2 font-bold">Result: <%= info.output %></p>
+            <a href="/crud/delete-fracture-collection/<%= info.uniqueID %>">
+              <button
+                class="rounded-lg p-2 bg-red-600 text-white font-bold m-2 duration-500 hover:scale-110">Delete</button>
+            </a>
+          </div>
+          <% }); %>
+        </div>
+      </div>
 
+      <div class="border-2 border-white flex flex-col">
+        <div>
+          <h1 class="text-4xl font-bold m-4">Anemia Collection</h1>
+        </div>
+        <div class="flex flex-wrap my-2">
+          <% anemiaSignedURLs.forEach((info) => { %>
+          <div class="border-2 border-black bg-white mx-4 rounded-lg p-2 xsm:my-2">
+            <h3 class="m-2">Image Name: <%= info.comment %></h3>
+            <a href="<%= info.signedURL %>" target="_blank">
+              <img src="/images/pdf-image.png" class="m-2 h-40 w-40 m-2" alt="Image">
+            </a>
+            <p class="m-2 font-bold">Result: <%= info.output %></p>
+            <a href="/crud/delete-anemia-collection/<%= info.uniqueID %>">
+              <button
+                class="rounded-lg p-2 bg-red-600 text-white font-bold m-2 duration-500 hover:scale-110">Delete</button>
+            </a>
+          </div>
+          <% }); %>
+        </div>
+      </div>
 
-<h1>Fracture Collection</h1>
-<% fractureSignedURLs.forEach((info) => { %>
-    <h3>Image Name: <%= info.comment %></h3>
-    <img src="<%= info.signedURL %>" alt="Image" style="height: 20px; width: auto;">
-    <p>Result: <%= info.output %></p>
-    <a href = "/crud/delete-fracture-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
-  <% }); %>
+      <div class="border-2 border-white flex flex-col">
+        <div>
+          <h1 class="text-4xl font-bold m-4">Heart Attack Collection</h1>
+        </div>
+        <div class="flex flex-wrap my-2">
+          <% heartSignedURLs.forEach((info) => { %>
+          <div class="border-2 border-black bg-white mx-4 rounded-lg p-2 xsm:my-2">
+            <h3 class="m-2">Image Name: <%= info.comment %></h3>
+            <a href="<%= info.signedURL %>" target="_blank">
+              <img src="/images/pdf-image.png" class="m-2 h-40 w-40 m-2" alt="Image">
+            </a>
+            <p class="m-2 font-bold">Result: <%= info.output %></p>
+            <a href="/crud/delete-heart-collection/<%= info.uniqueID %>">
+              <button
+                class="rounded-lg p-2 bg-red-600 text-white font-bold m-2 duration-500 hover:scale-110">Delete</button>
+            </a>
+          </div>
+          <% }); %>
+        </div>
+      </div>
 
-
-  <h1>Anemia Collection</h1>
-<% anemiaSignedURLs.forEach((info) => { %>
-    <h3>Image Name: <%= info.comment %></h3>
-    <a href = "<%= info.signedURL %>"><img src="/images/pdf-image.png" alt="Image" style="height: 20px; width: auto;"></a>  
-    <p>Result: <%= info.output %></p>
-    <a href = "/crud/delete-anemia-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
-  <% }); %>
-
-
-  <h1>Heartattack Collection</h1>
-  <% heartSignedURLs.forEach((info) => { %>
-      <h3>Image Name: <%= info.comment %></h3>
-      <a href = "<%= info.signedURL %>"><img src="/images/pdf-image.png" alt="Image" style="height: 20px; width: auto;"></a>  
-      <p>Result: <%= info.output %></p>
-      <a href = "/crud/delete-heart-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
-    <% }); %>
-
-
-
-    <h1>Tumor Collection</h1>
-<% tumorSignedURLs.forEach((info) => { %>
-    <h3>Image Name: <%= info.comment %></h3>
-    <img src="<%= info.signedURL %>" alt="Image" style="height: 20px; width: auto;">
-    <p>Result: <%= info.output %></p>
-    <a href = "/crud/delete-tumor-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
-  <% }); %>
-    
-
-
+      <div class="border-2 border-white flex flex-col">
+        <div>
+          <h1 class="text-4xl font-bold m-4">Tumor Collection</h1>
+        </div>
+        <div class="flex flex-wrap my-2">
+          <% tumorSignedURLs.forEach((info) => { %>
+          <div class="border-2 border-black bg-white mx-4 rounded-lg p-2 xsm:my-2">
+            <h3 class="m-2">Image Name: <%= info.comment %></h3>
+            <a href="<%= info.signedURL %>" target="_blank">
+              <img src="<%= info.signedURL %> " class="m-2 h-40 w-40 m-2" alt="Image">
+            </a>
+            <p class="m-2 font-bold">Result: <%= info.output %></p>
+            <a href="/crud/delete-tumor-collection/<%= info.uniqueID %>">
+              <button
+                class="rounded-lg p-2 bg-red-600 text-white font-bold m-2 duration-500 hover:scale-110">Delete</button>
+            </a>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <%- include('footer.ejs') %>
 <%- include('bottom.ejs') %>
