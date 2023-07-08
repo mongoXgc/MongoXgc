@@ -1,10 +1,10 @@
-FROM python
+FROM python:3.10.12
 
 WORKDIR /usr/nodeapp
 
 COPY ./requirements.txt ./
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY ./package.json ./
 
@@ -24,5 +24,7 @@ RUN npm install -g npm@$NPM_VERSION
 RUN npm install
 
 COPY ./ ./
+
+RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
 
 CMD [ "npm", "start" ]
