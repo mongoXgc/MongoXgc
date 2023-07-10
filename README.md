@@ -1,7 +1,7 @@
 # main
-website hosted on :  https://diagnoscan.org
+website hosted on :  
 # Introduction
-DiagnoScan is an medical/health related web application, which provides wide range of functionalites for diagnosing different types of health related information based on user's input, which can be image or file.
+Diagnocentre is an medical/health related web application, which provides wide range of functionalites for diagnosing different types of health related information based on user's input, which can be image or report information.
 Currently following types can be diagnosed: 
 1) Anemia
 2) Fracture
