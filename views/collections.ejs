@@ -26,47 +26,7 @@
         </div>
       </div>
 
-      <div class="border-2 border-white flex flex-col">
-        <div>
-          <h1 class="text-4xl font-bold m-4">Anemia Collection</h1>
-        </div>
-        <div class="flex flex-wrap my-2">
-          <% anemiaSignedURLs.forEach((info) => { %>
-          <div class="border-2 border-black bg-white mx-4 rounded-lg p-2 xsm:my-2">
-            <h3 class="m-2">Image Name: <%= info.comment %></h3>
-            <a href="<%= info.signedURL %>" target="_blank">
-              <img src="/images/pdf-image.png" class="m-2 h-40 w-40 m-2" alt="Image">
-            </a>
-            <p class="m-2 font-bold">Result: <%= info.output %></p>
-            <a href="/crud/delete-anemia-collection/<%= info.uniqueID %>">
-              <button
-                class="rounded-lg p-2 bg-red-600 text-white font-bold m-2 duration-500 hover:scale-110">Delete</button>
-            </a>
-          </div>
-          <% }); %>
-        </div>
-      </div>
 
-      <div class="border-2 border-white flex flex-col">
-        <div>
-          <h1 class="text-4xl font-bold m-4">Heart Attack Collection</h1>
-        </div>
-        <div class="flex flex-wrap my-2">
-          <% heartSignedURLs.forEach((info) => { %>
-          <div class="border-2 border-black bg-white mx-4 rounded-lg p-2 xsm:my-2">
-            <h3 class="m-2">Image Name: <%= info.comment %></h3>
-            <a href="<%= info.signedURL %>" target="_blank">
-              <img src="/images/pdf-image.png" class="m-2 h-40 w-40 m-2" alt="Image">
-            </a>
-            <p class="m-2 font-bold">Result: <%= info.output %></p>
-            <a href="/crud/delete-heart-collection/<%= info.uniqueID %>">
-              <button
-                class="rounded-lg p-2 bg-red-600 text-white font-bold m-2 duration-500 hover:scale-110">Delete</button>
-            </a>
-          </div>
-          <% }); %>
-        </div>
-      </div>
 
       <div class="border-2 border-white flex flex-col">
         <div>
