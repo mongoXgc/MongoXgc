@@ -12,14 +12,13 @@ Currently following types can be diagnosed:
 Folders and files are already provided in an structured way. 
 *NOTE* You have to add command "npm i" or "npm install" before running the program in your local environment.
 Only use this command once on every installation of the given program.
-*NOTE* You should create a new file named as "config.env" and create 2 variables named as "PORT" and "MONG_URI".
-The "PORT" variable will consist the port number that you will provide. And "MONGO_URI" variable will contain your personal link String for mongoDB connection.
+*NOTE* You should create a new file named as "config.env" and create 6 variables named as "PORT", "IP", "MONGO_URI", "GCP_PROID", "GCP_BUCKET_NAME" and "SECRET_JWT_KEY".
+The "PORT" variable will consist the port number that you will provide, "ID" variable will contain address of application, "MONGO_URI" variable will contain your personal link String for mongoDB connection, "GCP_PROID" will contain your google cloud platform project id, "GCP_BUCKET_NAME" will consist of your bucket name and finally "SECRET_JWT_KEY" variable will contain any random string that you want to set for token validation process used in authentication.
+*NOTE* Add your gcp service account key in the main repository(Json format file).
 
 # Working Condition
-This web application consists of some active as well as inactive functionalites as of now.
-Examples of inactive functionalites which will be made active in future:
-1) The signup/login functionalites are not working.
-2) Services page is not working.
+This web application is fully functional and after each successfull diagnose, all your data are stored in this application as well. 
+Any user can access/delete there stored data from collections which is linked through user's profile name.
 
 # How application works
 1. Once the user lands on default page aka 'HOME' page, a button "Get Diagnosed" will be shownup. On clicking the button user will be taken to a section where different types of options for diagnosis are present, i.e 'Fracture detection' , 'Anemia Detection'.
@@ -50,5 +49,4 @@ Examples of inactive functionalites which will be made active in future:
 2. PIL: PIL (Python Imaging Library) is a library for opening, manipulating, and saving many different image file formats. It provides a range of image processing capabilities, such as resizing, cropping, color balancing, and filtering.
 3. keras.model: keras.model is a module within the Keras deep learning library that provides a high-level API for building and training deep neural networks. It includes a range of pre-built layers and models, along with tools for loading and saving trained models.
 4. sys: sys is a built-in module in Python that provides access to system-specific functionality, such as command line arguments, the standard input/output streams, and the current platform.
-5. PyPDF2: PyPDF2 is a library for working with PDF files in Python. It provides tools for reading, writing, and manipulating PDF files, such as extracting text, merging and splitting files, and adding watermarks.
-6. pickle: pickle is a module in Python that provides a way to serialize and deserialize Python objects. It allows you to store complex data structures and objects as a binary file, which can be loaded back into memory later. This is useful for applications that need to store data for long periods of time, or for sending data over a network.
+5. pickle: pickle is a module in Python that provides a way to serialize and deserialize Python objects. It allows you to store complex data structures and objects as a binary file, which can be loaded back into memory later. This is useful for applications that need to store data for long periods of time, or for sending data over a network.
